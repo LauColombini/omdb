@@ -15,7 +15,7 @@ const backgroundasa = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.pepe);
+  console.log(state);
   return {
     isLoggin: state.pepe,
   };
@@ -24,54 +24,32 @@ const mapStateToProps = (state) => {
 
 
 function App(props) {
+  const isLoggin = props.isLoggin.id
+  console.log('HOLAAA', isLoggin)
   return (
     <div style={backgroundasa}>
       <Switch>
-        
-          <React.Fragment>
-            <div>
+        <React.Fragment>
+          {isLoggin ?
+            <React.Fragment>
               <Route exact path="/movies" component={MoviesSearchContainer} />
-              <Route path="/movies/:id" component={MovieContainer} />
-              <Route path="/navbar" component={Navbar} />
-             
-            </div>
-          </React.Fragment>
-        
-          <React.Fragment>
-            <div>
-              <Route excat path='/movies'component={noestaslogeado}/>
-              <Route excat path='/navbar'component={noestaslogeado}/>
+              <Route exact path="/movies/:id" component={MovieContainer} />
+              <Route exact path="/navbar" component={Navbar} />
+              <Redirect from="/" to="/movies" />
+            </React.Fragment>
+            :
+            <React.Fragment>
               <Route exact path="/login" component={LoginContainer} />
               <Route exact path="/register" component={RegisterContainer} />
-            </div>
-          </React.Fragment>
-      
-
+              <Route excat path='/movies' component={noestaslogeado} />
+              <Route excat path='/navbar' component={noestaslogeado} />
+            </React.Fragment>
+          }
+        </React.Fragment>
       </Switch>
 
-        <Redirect from="/" to="/movies" />
+
     </div>
   );
 }
 export default connect(mapStateToProps, null)(App);
-/*
-function App(props) {
-  return (
-    <div >
-      <Switch>
-        <React.Fragment>
-          <Route exact path="/movies" component={MoviesSearchContainer} />
-          <Route path="/movies/:id" component={MovieContainer} />
-          <Route path="/navbar" component={Navbar} />
-          <Route path='/favorites' component={FavoritesContainer}/>
-          <Route exact path="/login" component={LoginContainer} />
-          <Route exact path="/register" component={RegisterContainer} />
-        </React.Fragment>
-
-        <Redirect from="/" to="/movies" />
-      </Switch>
-    </div>
-  );
-}
-*/
-

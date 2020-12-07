@@ -71,8 +71,7 @@ app.use("/", function (req, res, next) {
 
 
 db.sync({ force: false })
-  .then(() => {
-    console.log('HOLAAAAAAAAAAAAAAAAAAAAA')
+  .then(() => {    
     app.listen(3000, () => {
       console.log("listening on port 3000")
     })
