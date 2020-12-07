@@ -17,7 +17,7 @@ export default function BasicTextFields({
   handleChangePassword,
   handleChangeEmail,
 }) {
-    console.log(handleSubmit)
+
   const classes = useStyles();
 
   const estilos = {
@@ -51,9 +51,9 @@ export default function BasicTextFields({
           type="Password"
         />
         <Button type='submit' style={{ alignSelf: "center" }} variant="contained">Register</Button>
-     
+
       </form>
-      
+
     </div>
   )
 }

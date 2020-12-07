@@ -15,7 +15,6 @@ const backgroundasa = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     isLoggin: state.pepe,
   };
@@ -25,7 +24,6 @@ const mapStateToProps = (state) => {
 
 function App(props) {
   const isLoggin = props.isLoggin.id
-  console.log('HOLAAA', isLoggin)
   return (
     <div style={backgroundasa}>
       <Switch>

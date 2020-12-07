@@ -3,15 +3,15 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Login from '../components/Login'
-import {userLogin} from '../action-creators/userlogeado'
+import { userLogin } from '../action-creators/userlogeado'
 
-const mapDispatchToProps = (dispatch)=>{
-  
+const mapDispatchToProps = (dispatch) => {
+
   return {
-    logginUser: (user)=> dispatch(userLogin(user))
-      
+    logginUser: (user) => dispatch(userLogin(user))
+
   }
-  
+
 }
 
 class LoginContainer extends React.Component {
@@ -19,34 +19,34 @@ class LoginContainer extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password:''
+      password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
   }
- handleSubmit(e) {
-    e.preventDefault();    
-    
+  handleSubmit(e) {
+    e.preventDefault();
+
     this.props.logginUser(this.state)
-    // Axios.post('/api/login', this.state)
-    .then(()=> 2 )
+      // Axios.post('/api/login', this.state)
+      .then(() => 2)
     return this.props.history.push('/movies')
- }
- handleChangePassword(e) {
-    this.setState({password: e.target.value})
-    console.log('funciono password')
+  }
+  handleChangePassword(e) {
+    this.setState({ password: e.target.value })
+
   }
 
   handleChangeEmail(e) {
-    console.log('holi')
-    this.setState({email: e.target.value})
-    console.log('funciono email')
+
+    this.setState({ email: e.target.value })
+
   }
   render() {
-    return(
+    return (
       <div>
-        <Login          
+        <Login
           handleSubmit={this.handleSubmit}
           handleChangePassword={this.handleChangePassword}
           handleChangeEmail={this.handleChangeEmail}
@@ -55,4 +55,4 @@ class LoginContainer extends React.Component {
     );
   }
 }
-export default connect(null,mapDispatchToProps)(LoginContainer)
+export default connect(null, mapDispatchToProps)(LoginContainer)

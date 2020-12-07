@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import Navbar from '../components/Navbar'
-import {fetchMovies} from '../action-creators/movies'
-import {userLogOut} from '../action-creators/logOut'
+import { fetchMovies } from '../action-creators/movies'
+import { userLogOut } from '../action-creators/logOut'
 
-console.log(userLogOut)
 
-const mapStateToProps = (state) => { 
+const mapStateToProps = (state) => {
   return {
     movie: state.movie
   };
@@ -14,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = function (dispatch) {
   return {
     fetchMovies: (str) => dispatch(fetchMovies(str)),
-    userLogOut: ()=>dispatch(userLogOut())
+    userLogOut: () => dispatch(userLogOut())
   };
 };
 
@@ -42,15 +41,15 @@ class NavbarContainer extends React.Component {
   }
 
 
-  logOut(){
+  logOut() {
     this.props.userLogOut()
   }
 
   render() {
     return (
       <div>
-        <Navbar   
-          logOut={this.logOut}       
+        <Navbar
+          logOut={this.logOut}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
